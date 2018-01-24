@@ -1,0 +1,13 @@
+vim text-editor.txt
+i  #to insert text 
+then type 
+#!/bin/bash
+echo "hello world"
+press [Esc] to get out insert mode 
+then :wq
+
+
+:syntax on
+vim ~/.vimrc
+syntax on
+then :wq
