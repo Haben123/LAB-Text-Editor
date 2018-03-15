@@ -1,0 +1,5 @@
+echo "yaaaaah hoooooooooooo" # echo input a line of text and display on standard output, the result of "echo "yaaaaah hoooooooooooo"" would be yaaaaah hoooooooooooo 
+
+yum -y install httpd   #install httpd(open source) using yum or install apache http server
+systemctl enable httpd # use the systemctl command to enable the apache http server(httpd)
+systemctl start httpd  #the systemctl command start the apache http server(httpd)
