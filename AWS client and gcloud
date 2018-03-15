@@ -1,1 +1,21 @@
+#!/bin/bash
+
+yum install google-cloud-sdk
+gcloud init
+
+yum install python-pip
+pip install --upgrade pip
+ pip install oauth2client
+ 
+pip install --upgrade google-api-python-client
+gcloud compute instances list 
+yum install git
+git clone //https://github.com/nic-instruction/NTI-300-2017.git
+
+cd NTI-300-2017
+ls -l
+cd gcloud
+ls
+Vim createinstance2.py
+pythone createinstance2.py
 
