@@ -1,21 +1,20 @@
 #!/bin/bash
 
-yum install google-cloud-sdk
-gcloud init
+yum install google-cloud-sdk                         #install google-cloud-sdk   
+gcloud init                                          # takes you through gcloud configration and you have to type yes(y) to continou the confegeration.
 
-yum install python-pip
-pip install --upgrade pip
- pip install oauth2client
+yum install python-pip                               #pip installing paython module 
+pip install --upgrade pip                            #upgrading pip pythone                        
+ pip install oauth2client                            #pip install oauth2client 
  
-pip install --upgrade google-api-python-client
-gcloud compute instances list 
-yum install git
-git clone //https://github.com/nic-instruction/NTI-300-2017.git
+pip install --upgrade google-api-python-client                     # list all the instance in gcloud compute
+gcloud compute instances list                                      #it list all the instances in gcloud
+yum install git                                                    #install git
+git clone //https://github.com/nic-instruction/NTI-300-2017.git    #this Git command line utility which is used to target an existing repository and create a clone, or copy of the target repository
 
-cd NTI-300-2017
+cd NTI-300-2017                                                    #change your directory to the cloned respairatory 
 ls -l
-cd gcloud
-ls
-Vim createinstance2.py
-pythone createinstance2.py
+cd gcloud                                                          #change the directory to gcloud
+ls                                                                 #list all fill
+
 
