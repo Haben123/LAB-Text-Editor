@@ -1,52 +1,37 @@
-#/bin/bash
+#!/usr/bin/python
 
-yum install python-pip
-pip install virtualenv        
-pip install --upgrade pip     
-mkdir /opt/django             
-cd /opt/django                 
-yum install epel-release
-yum install python34 python-pip
-virtualenv -p python3 django   
-cd django
-source bin/activate            
-python --version              
-pip install django            
-django-admin --version        
-django-admin startproject project1  
-chown -R habenhaftu django   
-exit 
-
-myip=$( curl https://api.ipify.org )
-sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \['"$myip"'\]/g" /opt/django/project1/project1/settings.py
+import os
 
 
-su - habenhaftu
-source /opt/django/django/bin/activate    
-
-/opt/django/project1/manage.py runserver 0.0.0.0:8000&  
-yum install git
-
-
-
-#!/bin/bash
-
-yum install google-cloud-sdk
-gcloud init
-
-yum install python-pip
-pip install --upgrade pip
- pip install oauth2client
+def setup_install():
+  os.system('sudo yum install python-pip -y') 
+  os.system('sudo pip install virtualenv')
+  os.system('sudo pip install --upgrade pip') 
+  os.mkdir('/opt/django')
+  os.chdir('/opt/django')
+  os.system('sudo yum install epel-release -y') 
+  os.system('sudo yum install python34 -y') 
+       
+  
+  
+def install_django():
+  os.system('sudo virtualenv -p python3 django')
+  os.chdir('/opt/django/django')
+  os.system('source /opt/django/django/bin/activate && pip install django')
+  os.system('source /opt/django/django/bin/activate && django-admin startproject project1')
+  
+  os.system('chown -R habenhaftu /opt/django/*')
+  os.system('yum install git -y') 
+  
+def allowed_host():
+  os.system('myip=$( curl https://api.ipify.org )' + \
+            '&& sed -i "s/ALLOWED_HOSTS = \[\]/ALLOWED_HOSTS = \[\'"$myip"\'\]/g" /opt/django/django/project1/project1/settings.py')
+  
+def start_django():
+  os.system('sudo -u habenhaftu -E sh -c "source /opt/django/django/bin/activate && ' + \
+            '/opt/django/django/project1/manage.py runserver 0.0.0.0:8000&"')
  
-pip install --upgrade google-api-python-client
-gcloud compute instances list 
-yum install git
-git clone //https://github.com/nic-instruction/NTI-300-2017.git
-
-cd NTI-300-2017
-ls -l
-cd gcloud
-ls
-Vim createinstance2.py
-pythone createinstance2.py
-
+setup_install()
+install_django()
+allowed_host()
+start_django()
